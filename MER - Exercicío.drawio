@@ -1,4 +1,4 @@
-<mxfile host="www.draw.io" modified="2020-01-27T14:11:57.608Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36" etag="B1r9S31XYvq-YB5OWkYy" version="12.5.8" type="github" pages="3">
+<mxfile host="www.draw.io" modified="2020-01-27T14:28:45.272Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36" etag="10gf9EDw62nqm9gsJRoG" version="12.5.8" type="github" pages="4">
   <diagram id="HLfAVQC_sLoz8uyRzaJp" name="CONCEITUAL">
     <mxGraphModel dx="1730" dy="885" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -1008,7 +1008,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="zauxVzqus3vSqVGLSTOL" name="Modelo-Conceitual">
-    <mxGraphModel dx="1328" dy="531" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2087" dy="885" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="hQ2xBEIDR6yXUJ9hZUuE-0"/>
         <mxCell id="hQ2xBEIDR6yXUJ9hZUuE-1" parent="hQ2xBEIDR6yXUJ9hZUuE-0"/>
@@ -1189,6 +1189,14 @@
         <mxCell id="hQ2xBEIDR6yXUJ9hZUuE-51" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="hQ2xBEIDR6yXUJ9hZUuE-1">
           <mxGeometry x="787" y="145" width="40" height="20" as="geometry"/>
         </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="K-CgxC18UlA2sQbI8UAA" name="Modelo-Logico">
+    <mxGraphModel dx="1252" dy="531" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="AaiwIf7z_IEPI0_o2H_8-0"/>
+        <mxCell id="AaiwIf7z_IEPI0_o2H_8-1" parent="AaiwIf7z_IEPI0_o2H_8-0"/>
       </root>
     </mxGraphModel>
   </diagram>

@@ -25,6 +25,13 @@ CREATE TABLE Livros(
 
 );
 
+INSERT INTO Autores(NomeAutor, IdAutor)
+VALUES('Joao', 1),
+	  ('Zeca', 2),
+	  ('Afonso', 3),
+	  ('Zequinha', 4),
+	  ('Amilton', 5);
+
 
 --DQL - COMANDO DE CONSULTA
 SELECT * FROM Autores;

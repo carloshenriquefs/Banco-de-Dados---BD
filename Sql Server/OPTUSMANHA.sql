@@ -35,6 +35,7 @@ CREATE TABLE Album(
 	IdEstilo INT FOREIGN KEY REFERENCES Estilo(IdEstilo)
 );
 
+--Inserir 5 valores na TABELA
 INSERT INTO TipoUsuario(IdTipoUsuario, Titulo)
 VALUES(2,'Rocha'),
 	  (3,'Amilton'),
@@ -87,10 +88,10 @@ WHERE IdUsuario = 1;
 --Deletar o dado da tabela
 DELETE FROM Album
 WHERE IdAlbum = 1;
+----------------------------------------------------
 
 TRUNCATE TABLE Usuarios;
 DROP TABLE Usuarios;
-
 
 SELECT * FROM TipoUsuario;
 SELECT * FROM Artistas;

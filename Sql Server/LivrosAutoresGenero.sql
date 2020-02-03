@@ -8,7 +8,7 @@ USE RoteiroLivros3;
 --Criar tabela
 --IDENTITY - AUTO INCREMENTO = 1,2,3,4,5
 CREATE TABLE Generos(
-	IdGenero INT PRIMARY KEY,
+	IdGenero INT PRIMARY KEY IDENTITY(1,1),
 	Nome	 VARCHAR (200) NOT NULL
 );
 
@@ -20,7 +20,7 @@ CREATE TABLE Autores(
 --DROP DATABASE Autores;
 
 CREATE TABLE Livros(
-	IdLivro  INT PRIMARY KEY,
+	IdLivro  INT PRIMARY KEY IDENTITY(1,1),
 	Titulo	 VARCHAR (255),
 	IdGenero INT FOREIGN KEY REFERENCES Generos(IdGenero),
 	IdAutor  INT FOREIGN KEY REFERENCES Autores(IdAutor)

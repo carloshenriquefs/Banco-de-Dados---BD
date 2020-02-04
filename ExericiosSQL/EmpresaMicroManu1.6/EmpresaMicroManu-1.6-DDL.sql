@@ -43,7 +43,7 @@ CREATE TABLE Colaboradores(
 );
 
 CREATE TABLE PedidosColaboradores(
-	IdPedido INT FOREIGN KEY REFERENCES Pedidos(IdPedido),
+	IdPedido INT PRIMARY KEY IDENTITY,
 	IdColaborador INT FOREIGN KEY REFERENCES Colaboradores(IdColaborador)
 );
 
@@ -53,3 +53,6 @@ SELECT * FROM Item;
 SELECT * FROM TipoConsertos;
 SELECT * FROM Colaboradores;
 SELECT * FROM PedidosColaboradores;
+
+DROP TABLE PedidosColaboradores;
+DROP TABLE Pedidos;

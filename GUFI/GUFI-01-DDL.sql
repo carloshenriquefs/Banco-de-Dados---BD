@@ -1,0 +1,66 @@
+CREATE DATABASE GUFImanha;
+
+USE GUFImanha;
+
+CREATE TABLE TipoUsuario(
+	IdTipoUsuario INT PRIMARY KEY IDENTITY,
+	TituloTipoUsuario VARCHAR(255) NOT NULL UNIQUE
+);
+GO
+
+CREATE TABLE TipoEvento(
+	IdTipoEvento INT PRIMARY KEY IDENTITY,
+	TituloTipoEvento VARCHAR(255) NOT NULL UNIQUE
+);
+GO
+
+CREATE TABLE Usuario(
+	IdUsuario INT PRIMARY KEY IDENTITY,
+	NomeUsuario VARCHAR(255) NOT NULL UNIQUE,
+	Email VARCHAR(255) NOT NULL UNIQUE,
+	Senha VARCHAR(255) NOT NULL,
+	DataCadastro DATETIME,
+	Genero VARCHAR(255),
+	IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(IdTipoUsuario)
+
+);
+GO
+
+CREATE TABLE Instituicao(
+	IdInstituicao INT PRIMARY KEY IDENTITY,
+	NomeInstituicao VARCHAR(255) NOT NULL UNIQUE,
+	CNPJ CHAR(14) NOT NULL UNIQUE,
+	Endereco VARCHAR(255) NOT NULL
+);
+GO
+
+
+CREATE TABLE Eventos(
+	IdEvento INT PRIMARY KEY IDENTITY,
+	NomeEvento VARCHAR(255) NOT NULL UNIQUE,
+	AcessoLivre BIT DEFAULT(1) NOT NULL,
+	DataEventos DATETIME2,
+	Descricao VARCHAR(255) NOT NULL UNIQUE,
+	IdTipoEvento INT FOREIGN KEY REFERENCES TipoEvento(IdTipoEvento),
+	IdInstituicao INT FOREIGN KEY REFERENCES Instituicao(IdInstituicao)
+
+);
+GO
+
+CREATE TABLE Presencas(
+	IdPresenca INT PRIMARY KEY IDENTITY,
+	Situacao VARCHAR(255) NOT NULL,
+	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario),
+	IdEvento INT FOREIGN KEY REFERENCES Eventos(IdEvento)
+);
+GO
+
+SELECT * FROM TipoUsuario;
+SELECT * FROM Usuario;
+SELECT * FROM TipoEvento;
+SELECT * FROM Instituicao;
+SELECT * FROM Presencas;
+SELECT * FROM Eventos;
+
+DROP TABLE Eventos;
+DROP TABLE Presencas;

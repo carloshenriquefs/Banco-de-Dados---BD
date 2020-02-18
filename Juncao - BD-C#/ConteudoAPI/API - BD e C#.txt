@@ -1,0 +1,95 @@
+API - SERVE PARA GARANTIR A SEGURANÇA
+Só ela pode acessar o banco de dados - API
+
+API - INTERFACE DE COMUNICAO QUE PERMITE A INTERAÇÃO DE VARIAS FRENTES
+
+Requisicao quem faz é o navegador
+Front-End faz uma requisição para o BacK-End
+
+VANTAGENS
+
+1) Simples programação;
+2) Trabalha com convenção, ao inves de configuracao;
+3) Facil consumo aplicações em outras tecnologias;
+4) Altamente personalisavel;
+5) Não necessita do IIS (self hosted)
+6) Permite construir aplicaçoes distribuidas;
+-------------------------------------------------------
+
+			CRUD
+
+Metodos HTTP- Tipo de requisicao(POST,GET,PUT,DELETE)	   
+	
+C - CREAT - POST
+R - READ - GET
+U - UPDATE - PUT
+D - DELETE - DELETE
+
+------------------------------------------------------
+
+JSON
+[
+  {
+	"CHAVE":"VALOR",	
+  }	
+] 
+
+
+URL = ENDPOINT = GENERO - API
+
+Generos Controller recebia a requisicao 
+
+[HTTPGET]
+{
+
+}
+---------------------------------------------------------------
+
+DOMAINS - REPRESENTACAO DO BANCO
+CONTROLLERS - RECEBE UMA REQUISICAO E DEVOLVE UMA RESPOSTA
+INTERFACE - METODOS DEFINIDOS - DEFINE O QUE TEM QUE SER FEITO
+REPOSITORY - COMUNICA SE COM O BANCO DE DADOS
+
+---------------------------------------------------------------
+REST - REGRAS DE BOAS PRATICAS DA CONSTRUÇÃO -COMUNICACAO
+
+REST = A sigla significa Representational State Transfer
+
+- Caracteristicas Do REST:
+
+1) Camada bem leve acima do HTTP;
+2) Baseado em recursos e ações;
+3) Utiliza largamente os verbos (ações) HTTP como GET e POST;
+4) Vinculação de recursos;
+5) Facilita a utilização por client JavaScript;
+
+Podemos dizer que o REST dá sentido ao protocolo HTTP, preparando-o 
+para uso real em serviços de alto tráfego
+----------------------------------------------------------
+ORDEM DE CRIACAO (Mas não precisa de ordem)
+
+1 - Domains
+2 - Interface
+3 - Repositorio
+4 - Controllers - Endpoints
+----------------------------------------------------------
+
+ADO.NET - Permite a comunicacao com os bancos
+
+----------------------------------------------------------
+NOMENCLATURA:
+
+http://localhost:8080/api/nomeControllers
+----------------------------------------------------------
+
+cadastrar 
+atualizar 
+deletar
+
+
+
+modificar a query
+
+UDS.COM.BR
+VAGAS@UDS.COM.BR
+update

@@ -8,52 +8,27 @@ using System.Threading.Tasks;
 
 namespace Senai.filmes.webapi.Repositories
 {
+    //CONTROLLER = responsavel pelos endpoints referentes aos generos
+
     //Como as coisas são feitas = repositorios
     //herdar do repositorio para interface
     public class GeneroRepository : IGeneroRepository
     {
         //Definir servidor e o nome do banco de dados e o usuario com o Id e Senha
         //integrated security=true - sem o log
-        private string StringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Filmes; user Id =sa; pwd=sa@132";
+        //private string StringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Filmes; user Id =sa; pwd=sa@132";
+        private string StringConexao = "Data Source=LAPTOP-N251D43S\\TEW_SQLEXPRESS; integrated security = true";
+        bool novo;
 
         public object SqlDataReader { get; private set; }
 
-        public List<GeneroDomain> Colocar()
+
+        private void Atributos(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            txtNome.Text = " ";
         }
 
-        public List<GeneroDomain> Deletar()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<GeneroDomain> Inserir()
-        {
-            List<GeneroDomain> Generos = new List<GeneroDomain>();
-
-            using (SqlConnection conecta = new SqlConnection(StringConexao))
-            {
-                string query = "INSERT INTO Generos VALUES(Romance)";
-
-                conecta.Open();
-
-                SqlDataReader rdr1;
-
-                using (SqlCommand cmd1 = new SqlCommand(query, conecta))
-                {
-                    rdr1 = cmd1.ExecuteReader();
-
-                    while (rdr1.Read())
-                    {
-                        GeneroDomain genero1 = new GeneroDomain()
-                        {
-
-                        };
-                    }
-                }
-            }
-        }
+        SqlCommand comando = null;
 
         public List<GeneroDomain> Listar()
         {
@@ -102,6 +77,91 @@ namespace Senai.filmes.webapi.Repositories
             }
 
             return Generos;
+        }
+
+
+        public void Registro(object sender, EventArgs e)
+        {
+            if(txtNome.Text != "")
+            {
+                try
+                {
+                    using (SqlConnection conexao = new SqlConnection(StringConexao))
+                    {
+                        comando = new SqlCommand("INSERT INTO Generos (Nome) VALUES (@Nome)", conexao);
+                        conexao.Open();
+                        comando.Parameters.AddWithValue("@Nome", txtNome.Text.ToUpper());
+                        comando.ExecuteNonQuery();
+                        MessagemBox.Show("Registro incluido com sucesso...");
+                    }
+
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+                finally
+                {
+                    StringConexao.Close();
+
+                }
+            }
+        }
+
+        private void Atualizar(object sender, EventArgs e)
+        {
+            if(txtNome.Text != "")
+            {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(StringConexao))
+                    {
+                        cmd = new SqlCommand("UPDATE Generos SET Nome=@Nome", con);
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@id", IdGenero);
+                        cmd.Parameters.AddWithValue("@Nome", txtNome.Text.ToUpper());
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Registro atualizado com sucesso!");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Erro:" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Informe todos os dados");
+            }
+        }
+
+
+        private void Deletar(object sender, EventArgs e)
+        {
+            if(IdGenero != 0)
+            {
+                try
+                {
+                    using (SqlConnection con = new SqlConnection(StringConexao))
+                    {
+                        cmd = new SqlCommand("DELETE Generos WHERE id=@id", con);
+                        con.Open();
+                        cmd.Parameters.AddWithValue("@id", IdGenero);
+                        cmd.ExecuteNonQuery();
+                        MessagemBox.Show("Deletado com sucesso!!!");
+
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.Message);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Selecione um registro para deletar");
+            }
         }
     }
 }

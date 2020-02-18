@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Controllers",
-    "\\Domains",
-    "\\Interfaces",
-    "\\Repositories"
+    "\\Models",
+    "\\wwwroot"
   ],
-  "SelectedNode": "\\Domains\\FilmeDomain.cs",
+  "SelectedNode": "\\Models\\Genero.cs",
   "PreviewInSolutionExplorer": false
 }

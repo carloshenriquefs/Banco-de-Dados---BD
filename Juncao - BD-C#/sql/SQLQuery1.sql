@@ -5,8 +5,6 @@ USE Filmes;
 CREATE TABLE Genero(
 	IdGenero INT PRIMARY KEY IDENTITY,
 	Nome VARCHAR(255) UNIQUE NOT NULL,
-
-
 );
 
 
@@ -26,3 +24,4 @@ SELECT F.Titulo,G.Nome
 FROM Genero G INNER JOIN Filmes F ON G.IdGenero = F.IdGenero
 
 SELECT * FROM Filmes
+SELECT * FROM Genero

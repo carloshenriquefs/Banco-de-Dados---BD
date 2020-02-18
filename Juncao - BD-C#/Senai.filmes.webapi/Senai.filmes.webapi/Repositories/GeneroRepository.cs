@@ -16,6 +16,45 @@ namespace Senai.filmes.webapi.Repositories
         //integrated security=true - sem o log
         private string StringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Filmes; user Id =sa; pwd=sa@132";
 
+        public object SqlDataReader { get; private set; }
+
+        public List<GeneroDomain> Colocar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<GeneroDomain> Deletar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<GeneroDomain> Inserir()
+        {
+            List<GeneroDomain> Generos = new List<GeneroDomain>();
+
+            using (SqlConnection conecta = new SqlConnection(StringConexao))
+            {
+                string query = "INSERT INTO Generos VALUES(Romance)";
+
+                conecta.Open();
+
+                SqlDataReader rdr1;
+
+                using (SqlCommand cmd1 = new SqlCommand(query, conecta))
+                {
+                    rdr1 = cmd1.ExecuteReader();
+
+                    while (rdr1.Read())
+                    {
+                        GeneroDomain genero1 = new GeneroDomain()
+                        {
+
+                        };
+                    }
+                }
+            }
+        }
+
         public List<GeneroDomain> Listar()
         {
             List<GeneroDomain> Generos = new List<GeneroDomain>();

@@ -31,7 +31,7 @@ namespace Senai.filmes.webapi
                 app.UseDeveloperExceptionPage();
             }
 
-            //Define o uso do MVC
+            //Define o uso do MVC - E habilita o uso do mvc
             app.UseMvc();
         }
     }

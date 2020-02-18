@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Senai.filmes.webapi.Domains;
 using Senai.filmes.webapi.Interfaces;
 using Senai.filmes.webapi.Repositories;
-using Senai.filmes.webapi.Models;
+//using Senai.filmes.webapi.Models;
 
 namespace Senai.filmes.webapi.Controllers
 {
@@ -43,37 +43,84 @@ namespace Senai.filmes.webapi.Controllers
             return _generoRepository.Listar();
         }
 
-        //[HttpPost]
-        //public IActionResult Post()
-        //{
-        //    return _generoRepository.Inserir();
-        //}
-
-        //Insercao de dados - POST
-        public void Post(string nome)
+        [HttpPost]
+        public IActionResult Post(GeneroDomain generoRecebido)
         {
-            if(!string.IsNullOrEmpty(nome))
+            _generoRepository.Cadastrar(generoRecebido);
+
+            //return Ok(); //status code 200
+            //return BadRequest(); // Status Code 400
+            //return NotFound(); //Status code 404
+            //return StatusCode(203); //Status code 203
+            return StatusCode(201); //status code 201 - created
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _generoRepository.Deletar(id);
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult PUTurl(int id, GeneroDomain generoAtualizado)
+        {
+            GeneroDomain generoBuscado = _generoRepository.GetById(id);
+
+            if(generoBuscado == null)
             {
-                Generos.Add(new Genero(nome));
+                return NotFound(new { messagem = "Genero não encontrado", erro = true });
             }
+
+            _generoRepository.AtualizarIdUrl(id,generoAtualizado);
+
+            try
+            {
+                _generoRepository.AtualizarIdUrl(id, generoAtualizado);
+                return NoContent();
+            }
+            catch(Exception erro)
+            {
+                return BadRequest(erro);
+            }
+            
         }
 
-        //[HttpPut]
-        //public IActionResult Put()
-        //{
-        //    return _generoRepository.Colocar();
-        //}
-
-        //[HttpDelete]
-        //public IActionResult Delete()
-        //{
-        //    return _generoRepository.Deletar();
-        //}
-
-        //Consultas link
-        public void Delete(string nome)
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
         {
-            Generos.RemoveAt(Generos.IndexOf(generos.Firts(x => x.Nome.Equals(nome))));
+            GeneroDomain generoBuscado = _generoRepository.GetById(id);
+
+            if(generoBuscado == null)
+            {
+                return NotFound("Nenhum genero Encontrado");
+            }
+
+            return StatusCode(200, generoBuscado);
+
+            _generoRepository.GetById(id);
         }
+
+    
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     }
 }

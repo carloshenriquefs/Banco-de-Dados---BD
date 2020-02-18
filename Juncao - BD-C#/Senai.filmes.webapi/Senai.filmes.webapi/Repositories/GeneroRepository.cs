@@ -16,19 +16,17 @@ namespace Senai.filmes.webapi.Repositories
     {
         //Definir servidor e o nome do banco de dados e o usuario com o Id e Senha
         //integrated security=true - sem o log
-        //private string StringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Filmes; user Id =sa; pwd=sa@132";
-        private string StringConexao = "Data Source=LAPTOP-N251D43S\\TEW_SQLEXPRESS; integrated security = true";
+        private string StringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Filmes; user Id =sa; pwd=sa@132";
+        //private string StringConexao = "Data Source=LAPTOP-N251D43S\\TEW_SQLEXPRESS; integrated security = true";
         bool novo;
 
         public object SqlDataReader { get; private set; }
 
-
-        private void Atributos(object sender, EventArgs e)
-        {
-            txtNome.Text = " ";
-        }
-
         SqlCommand comando = null;
+
+        public GeneroRepository()
+        {
+        }
 
         public List<GeneroDomain> Listar()
         {
@@ -79,88 +77,108 @@ namespace Senai.filmes.webapi.Repositories
             return Generos;
         }
 
-
-        public void Registro(object sender, EventArgs e)
+        public void Cadastrar(GeneroDomain genero)
         {
-            if(txtNome.Text != "")
+            using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                try
-                {
-                    using (SqlConnection conexao = new SqlConnection(StringConexao))
-                    {
-                        comando = new SqlCommand("INSERT INTO Generos (Nome) VALUES (@Nome)", conexao);
-                        conexao.Open();
-                        comando.Parameters.AddWithValue("@Nome", txtNome.Text.ToUpper());
-                        comando.ExecuteNonQuery();
-                        MessagemBox.Show("Registro incluido com sucesso...");
-                    }
+                //Forma 1º - JEITO ERRADO
+                //string queryInsert = "INSERT INTO Genero (Nome) VALUES('" + genero.Nome + "')";
 
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Erro: " + ex.Message);
-                }
-                finally
-                {
-                    StringConexao.Close();
+                //FORMA 2°
+                string queryInsert = "INSERT INTO Genero (Nome) VALUES (@Nome)";
 
+                using (SqlCommand cmd = new SqlCommand(queryInsert,con))
+                {
+
+                    //Forma 2° - JEITO CERTO
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+
+                    con.Open();
+                    //Executa o comando sem executar
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
 
-        private void Atualizar(object sender, EventArgs e)
+        public void Atualizar(GeneroDomain generoA)
         {
-            if(txtNome.Text != "")
+            using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                try
-                {
-                    using (SqlConnection con = new SqlConnection(StringConexao))
-                    {
-                        cmd = new SqlCommand("UPDATE Generos SET Nome=@Nome", con);
-                        con.Open();
-                        cmd.Parameters.AddWithValue("@id", IdGenero);
-                        cmd.Parameters.AddWithValue("@Nome", txtNome.Text.ToUpper());
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Registro atualizado com sucesso!");
-                    }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Erro:" + ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Informe todos os dados");
+                string queryUpdate = "UPDATE Generos SET Nome = 'Acao' WHERE IdGenero = @ID";
             }
         }
 
-
-        private void Deletar(object sender, EventArgs e)
+        public void Deletar(int id)
         {
-            if(IdGenero != 0)
+            //Conexao com  o banco de dados
+            using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                try
-                {
-                    using (SqlConnection con = new SqlConnection(StringConexao))
-                    {
-                        cmd = new SqlCommand("DELETE Generos WHERE id=@id", con);
-                        con.Open();
-                        cmd.Parameters.AddWithValue("@id", IdGenero);
-                        cmd.ExecuteNonQuery();
-                        MessagemBox.Show("Deletado com sucesso!!!");
+                string queryDeletar = "DELETE FROM Generos WHERE IdGenero = @ID";
 
-                    }
-                }
-                catch(Exception ex)
+                using (SqlCommand cmd = new SqlCommand(queryDeletar, con))
                 {
-                    MessageBox.Show("Erro: " + ex.Message);
-                }
+                    cmd.Parameters.AddWithValue("@ID",id);
+                    //cmd.Parameters.AddWithValue("");
 
+                    con.Open();
+
+                    //mandar dados
+                    cmd.ExecuteNonQuery();
+                }
             }
-            else
+        }
+
+        public void AtualizarIdCorpo(GeneroDomain generoA)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AtualizarIdUrl(int id, GeneroDomain genero)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                MessageBox.Show("Selecione um registro para deletar");
+                string queryAtualizar = "UPDATE Generos SET Nome = @Nome WHERE IdGenero = @ID";
+
+                using (SqlCommand cmd = new SqlCommand(queryAtualizar, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public GeneroDomain GetById(int id)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryBuscar = "SELECT IdGenero, Nome FROM Generos WHERE IdGenero = @ID ";
+
+                using (SqlCommand cmd = new SqlCommand(queryBuscar, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
+
+                    con.Open();
+
+                    SqlDataReader rdr;
+
+                    rdr = cmd.ExecuteReader();
+
+                    if(rdr.Read())
+                    {
+                        GeneroDomain genero = new GeneroDomain
+                        {
+                            IdGenero = Convert.ToInt32(rdr["IdGenero"]),
+                            Nome = rdr["Nome"].ToString()
+                        };
+
+                        return genero;
+                    }
+                    return null;
+                }
             }
         }
     }

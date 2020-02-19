@@ -1,0 +1,28 @@
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.deps.json
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.runtimeconfig.json
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.runtimeconfig.dev.json
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.dll
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.csprojAssemblyReference.cache
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.csproj.CoreCompileInputs.cache
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.RazorAssemblyInfo.cache
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.RazorAssemblyInfo.cs
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.AssemblyInfoInputs.cache
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.AssemblyInfo.cs
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.RazorTargetAssemblyInfo.cache
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.pdb
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.dll
+C:\Users\36349647823\Desktop\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.pdb
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.deps.json
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.runtimeconfig.json
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.runtimeconfig.dev.json
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.dll
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\bin\Debug\netcoreapp2.1\Senai.filmes.webapi.pdb
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.csprojAssemblyReference.cache
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.csproj.CoreCompileInputs.cache
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.RazorAssemblyInfo.cache
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.RazorAssemblyInfo.cs
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.AssemblyInfoInputs.cache
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.AssemblyInfo.cs
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.RazorTargetAssemblyInfo.cache
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.dll
+D:\Senai - Santa cecilia\Bando-de-Dados\Juncao - BD-C#\Senai.filmes.webapi\Senai.filmes.webapi\obj\Debug\netcoreapp2.1\Senai.filmes.webapi.pdb

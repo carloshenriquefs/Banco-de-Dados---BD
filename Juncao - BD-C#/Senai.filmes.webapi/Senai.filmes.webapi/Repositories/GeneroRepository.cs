@@ -24,10 +24,6 @@ namespace Senai.filmes.webapi.Repositories
 
         SqlCommand comando = null;
 
-        public GeneroRepository()
-        {
-        }
-
         public List<GeneroDomain> Listar()
         {
             List<GeneroDomain> Generos = new List<GeneroDomain>();
@@ -85,7 +81,7 @@ namespace Senai.filmes.webapi.Repositories
                 //string queryInsert = "INSERT INTO Genero (Nome) VALUES('" + genero.Nome + "')";
 
                 //FORMA 2°
-                string queryInsert = "INSERT INTO Genero (Nome) VALUES (@Nome)";
+                string queryInsert = "INSERT INTO Generos (Nome) VALUES (@Nome)";
 
                 using (SqlCommand cmd = new SqlCommand(queryInsert,con))
                 {
@@ -126,11 +122,6 @@ namespace Senai.filmes.webapi.Repositories
                     cmd.ExecuteNonQuery();
                 }
             }
-        }
-
-        public void AtualizarIdCorpo(GeneroDomain generoA)
-        {
-            throw new NotImplementedException();
         }
 
         public void AtualizarIdUrl(int id, GeneroDomain genero)
@@ -178,6 +169,24 @@ namespace Senai.filmes.webapi.Repositories
                         return genero;
                     }
                     return null;
+                }
+            }
+        }
+
+        public void AtualizarIdCorpo(GeneroDomain genero)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryAtualizar = "UPDATE Generos SET Nome = @Nome WHERE IdGenero = @ID";
+
+                using (SqlCommand cmd = new SqlCommand(queryAtualizar, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", genero.IdGenero);
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }

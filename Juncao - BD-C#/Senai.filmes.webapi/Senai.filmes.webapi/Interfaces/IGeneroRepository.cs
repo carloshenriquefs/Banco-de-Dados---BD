@@ -31,13 +31,13 @@ namespace Senai.filmes.webapi.Interfaces
         //Deletar um Genero
         void Deletar(int id);
 
-
         /// <summary>
         /// Busca um genero atraves de um Id
         /// </summary>
         /// <param name="id">ID do genero que será buscado</param>
         /// <returns></returns>
         GeneroDomain GetById(int id);
+
         
     }
 }

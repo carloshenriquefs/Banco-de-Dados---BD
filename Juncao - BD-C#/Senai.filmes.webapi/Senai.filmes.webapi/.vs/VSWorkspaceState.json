@@ -1,9 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Models",
+    "\\Controllers",
+    "\\Domains",
+    "\\Interfaces",
+    "\\Repositories",
     "\\wwwroot"
   ],
-  "SelectedNode": "\\Models\\Genero.cs",
+  "SelectedNode": "\\Interfaces",
   "PreviewInSolutionExplorer": false
 }

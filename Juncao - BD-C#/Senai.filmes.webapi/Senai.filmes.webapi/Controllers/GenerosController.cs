@@ -24,8 +24,7 @@ namespace Senai.filmes.webapi.Controllers
         //Cria um objeto e recebe todos os metodos definidos da interface 
         private IGeneroRepository _generoRepository { get; set; }
 
-        private static List<Genero> Generos = new List<Genero>();
-
+       
         public GenerosController()
         {
             //chamar os metodos da classe generoRepository
@@ -43,6 +42,7 @@ namespace Senai.filmes.webapi.Controllers
             return _generoRepository.Listar();
         }
 
+
         [HttpPost]
         public IActionResult Post(GeneroDomain generoRecebido)
         {
@@ -59,7 +59,7 @@ namespace Senai.filmes.webapi.Controllers
         public IActionResult Delete(int id)
         {
             _generoRepository.Deletar(id);
-            return NoContent();
+            return Ok("Gênero deletado");
         }
 
         [HttpPut("{id}")]
@@ -86,6 +86,36 @@ namespace Senai.filmes.webapi.Controllers
             
         }
 
+        [HttpPut]
+        public IActionResult PutIdCorpo(GeneroDomain generoAtualizado)
+        {
+            GeneroDomain generoBuscado = _generoRepository.BuscarPorId(generoAtualizado.IdGenero);
+
+            if(generoBuscado != null)
+            {
+                try
+                {
+                    _generoRepository.AtualizarIdCorpo(generoAtualizado);
+
+                    return NoContent();
+
+                }
+                catch(Exception erro)
+                {
+                    return BadRequest(erro);
+                }
+            }
+            return NotFound 
+                (
+                    new 
+                    {
+                        mensagem = "Gênero não encontrado", 
+                        erro = true
+                    }
+                );
+        
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -98,9 +128,11 @@ namespace Senai.filmes.webapi.Controllers
 
             return StatusCode(200, generoBuscado);
 
-            _generoRepository.GetById(id);
+            
         }
 
+
+        
     
 
        

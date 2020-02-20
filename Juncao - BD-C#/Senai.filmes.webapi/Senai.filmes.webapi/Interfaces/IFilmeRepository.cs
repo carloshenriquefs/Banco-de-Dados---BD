@@ -16,6 +16,8 @@ namespace Senai.filmes.webapi.Interfaces
 
         void AtualizarFilme(FilmeDomain FilmeA);
 
+        void AtualizarIdUrl(int id, FilmeDomain filme);
+
         void DeletarFilme(int id);
 
         FilmeDomain GetById(int id);

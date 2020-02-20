@@ -36,6 +36,28 @@ namespace Senai.filmes.webapi.Controllers
             return StatusCode(201);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult PutIdUrl(int id, FilmeDomain filmeAtualizado)
+        {
+            FilmeDomain filmeBuscado = _filmesRepository.GetById(id);
+
+            if(filmeBuscado == null)
+            {
+                return NotFound(new{mensagem = "Gênero não encontrado", erro = true});
+            }
+
+            try
+            {
+                _filmesRepository.AtualizarIdUrl(id,filmeAtualizado);
+
+                return NoContent();
+            }
+            catch(Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

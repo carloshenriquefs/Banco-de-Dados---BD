@@ -55,12 +55,6 @@ namespace Senai.filmes.webapi.Controllers
             return StatusCode(201); //status code 201 - created
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            _generoRepository.Deletar(id);
-            return Ok("Gênero deletado");
-        }
 
         [HttpPut("{id}")]
         public IActionResult PUTurl(int id, GeneroDomain generoAtualizado)
@@ -71,8 +65,6 @@ namespace Senai.filmes.webapi.Controllers
             {
                 return NotFound(new { messagem = "Genero não encontrado", erro = true });
             }
-
-            _generoRepository.AtualizarIdUrl(id,generoAtualizado);
 
             try
             {
@@ -131,28 +123,12 @@ namespace Senai.filmes.webapi.Controllers
             
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _generoRepository.Deletar(id);
+            return Ok("Gênero deletado");
+        }
 
-        
-    
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     }
 }

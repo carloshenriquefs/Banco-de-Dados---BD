@@ -16,13 +16,8 @@ namespace Senai.filmes.webapi.Repositories
     {
         //Definir servidor e o nome do banco de dados e o usuario com o Id e Senha
         //integrated security=true - sem o log
-        private string StringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Filmes; user Id =sa; pwd=sa@132";
-        //private string StringConexao = "Data Source=LAPTOP-N251D43S\\TEW_SQLEXPRESS; integrated security = true";
-        bool novo;
-
-        public object SqlDataReader { get; private set; }
-
-        SqlCommand comando = null;
+        ///private string StringConexao = "Data Source=DEV501\\SQLEXPRESS; initial catalog=Filmes; user Id =sa; pwd=sa@132";
+        private string StringConexao = "Data Source=LAPTOP-N251D43S\\TEW_SQLEXPRESS; integrated security = true";
 
         public List<GeneroDomain> Listar()
         {
@@ -96,14 +91,6 @@ namespace Senai.filmes.webapi.Repositories
             }
         }
 
-        public void Atualizar(GeneroDomain generoA)
-        {
-            using (SqlConnection con = new SqlConnection(StringConexao))
-            {
-                string queryUpdate = "UPDATE Generos SET Nome = 'Acao' WHERE IdGenero = @ID";
-            }
-        }
-
         public void Deletar(int id)
         {
             //Conexao com  o banco de dados
@@ -148,13 +135,13 @@ namespace Senai.filmes.webapi.Repositories
             {
                 string queryBuscar = "SELECT IdGenero, Nome FROM Generos WHERE IdGenero = @ID ";
 
-                using (SqlCommand cmd = new SqlCommand(queryBuscar, con))
-                {
-                    cmd.Parameters.AddWithValue("@ID", id);
-
                     con.Open();
 
                     SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(queryBuscar, con))
+                {
+                    cmd.Parameters.AddWithValue("@ID", id);
 
                     rdr = cmd.ExecuteReader();
 

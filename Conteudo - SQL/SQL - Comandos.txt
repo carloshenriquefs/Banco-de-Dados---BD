@@ -1,6 +1,30 @@
 ==========================================
    	| SQL Server (T-SQL) |
 ==========================================
+*SGBD(SQL STUDIO) - GERENCIA
+
+*SQL SERVER - GUARDA (LOCAL)
+------------------------------------------
+DDL - Linguagem De Definicao de Dados
+------------------------------------------
+CREATE DATABASE - Criar um Banco
+CREATE TABLE - Criar Tabelas
+ALTER TABLE - Alterar Tabelas
+TRUNCATE TABLE - Apagar dados da tabela
+DROP TABLE - Apaga tabela
+
+------------------------------------------
+DML - Linguagem De Manipulação de Dados
+------------------------------------------
+INSERT - Incluir Dados
+DELETE - Deleta os dados da coluna
+UPDATE - Alterar dados
+
+------------------------------------------
+DQL - Linguagem De Consulta de Dados
+------------------------------------------
+São os comandos de consulta de dados
+SELECT * FROM Table - Selecionar dados
 
 ------------------------------------------
            - SELECT DISTINCT

@@ -46,3 +46,23 @@ condições for verdadeira;
 
  SELECT * FROM tbl_Livro
  WHERE ID_Livro > 2 OR ID_Autor < 3
+
+---------------------------------------------
+	    - Comando UPDATE
+---------------------------------------------
+UPDATE tabela
+SET coluna = valor
+
+UPDATE nome_tabela
+SET coluna = valor
+WHERE filtro 
+
+UPDATE tbl_livros        --UPDATE nome_Tabela
+SET Preco_Livro = 65.45  --SET trocar_preco da coluna Preco_Livro
+wHERE ID_Livro = 102;	 --WHERE Localizar o valor 102 do ID_Livro
+
+//Alterar mais de uma coluna
+UPDATE tbl_livros
+SET Preco_Livro = 80.00,
+ISBN = '0202020'
+WHERE ID_Livro = 101;

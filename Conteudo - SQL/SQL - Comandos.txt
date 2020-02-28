@@ -90,3 +90,20 @@ UPDATE tbl_livros
 SET Preco_Livro = 80.00,
 ISBN = '0202020'
 WHERE ID_Livro = 101;
+
+-----------------------------------------------
+	     - SELECT TOP
+-----------------------------------------------
+*Usado para especificar o número de registros 
+a retornar;
+
+*Util para tabelas com muitos registros
+
+SELECT TOP número|percentual colunas
+FROM tabela
+
+SELECT TOP 10 PERCENT Nome_Livro
+FROM tbl_Livro
+
+SELECT TOP 2 Nome_Livro
+FROM tbl_Livro

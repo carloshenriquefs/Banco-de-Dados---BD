@@ -107,3 +107,79 @@ FROM tbl_Livro
 
 SELECT TOP 2 Nome_Livro
 FROM tbl_Livro
+
+------------------------------------------------
+	      - SQL ALIAS
+------------------------------------------------
+
+Pode-se dar um nome diferente a uma coluna ou tabela
+em uma consulta.
+
+SELECT colunas
+AS nome_alias
+FROM tabela
+
+SELECT Nome_Livro
+AS Livro
+FROM tbl_Livro
+
+USE db_Biblioteca
+SELECT Nome_Livro
+AS Livro, ID_autor AS Autor
+FROM tbl_Livro
+
+-------------------------------------------------
+	       - Operador UNION
+-------------------------------------------------
+  Permite combinar duas ou mais declarações SELECT.
+
+  Cada declaração SELECT deve ter o mesmo número de 
+colunas, tipos de dados e ordem das colunas
+
+SELECT colunas FROM tabela1
+UNION
+SELECT colunas FROM tabela2
+
+SELECT ID_Autor FROM tbl_autores UNION
+SELECT ID_Autor FROM tbl_Livro
+
+SELECT ID_Autor FROM tbl_autores
+UNION ALL
+SELECT ID_Autor FROM tbl_livro
+
+--------------------------------------------------
+		- SELECT INTO
+--------------------------------------------------
+ Seleciona dados de uma ou mais tabelas e os insere em
+uma tabela diferente.
+
+Pode ser usada para criar cópias de backup de tabelas
+
+SELECT *
+INT nova_tabela
+FROM tabela_atual
+
+SELECT Nome_Livro,ID_Autor
+INTO LivroAutor
+FROM tbl_Livro
+WHERE ID_Livro > 2
+
+----------------------------------------------------
+		- Funções Agregadas
+----------------------------------------------------
+
+MIN - Valor Minimo
+MAX - Valor Maximo
+AVG - Media Aritmetica
+SUM - Total (Soma)
+COUNT - Contar quantidade de item
+
+Exemplo:
+
+SELECT COUNT(*) FROM tbl_autores
+
+SELECT MAX (Preco_Livro) FROM tbl_Livro
+
+SELECT MIN (Preco_Livro) FROM tbl_Livro
+
+SELECT SUM (Preco_Livro) FROM tbl_Livro

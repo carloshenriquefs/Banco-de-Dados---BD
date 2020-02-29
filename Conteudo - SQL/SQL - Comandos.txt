@@ -183,3 +183,81 @@ SELECT MAX (Preco_Livro) FROM tbl_Livro
 SELECT MIN (Preco_Livro) FROM tbl_Livro
 
 SELECT SUM (Preco_Livro) FROM tbl_Livro
+
+-----------------------------------------------------
+	    - BETWEEN - SELECAO DE INTERVALO
+-----------------------------------------------------
+
+SELECT colunas FROM tabela
+WHERE coluna BETWEEN valor1 AND valor2
+
+SELECT * FROM tbl_Livro
+WHERE Data_Pub BETWEEN '20040517' AND '20100517'
+
+SELECT Nome_Livro AS Livro, Preco_Livro AS Preco
+FROM tbl_Livro
+WHERE Preco_Livro BETWEEN 40.00 AND 60.00
+
+----------------------------------------------------
+		LIKE E NOT LIKE
+----------------------------------------------------
+*Determina se uma cadeia de caracteres especifica corresponde
+a uma padrao especificado. Um padrao pode incluir caracteres
+normais e curingas
+
+*NOT LIKE inverte a comparação, verificando se a cadeia 
+de caracteres NAO corresponde ao padrão especificado.
+
+Usando junto com WHERE
+
+Ex.:
+
+WHERE coluna LIKE padrao
+
+ LIKE - Padrões especificos
+
+'%' - Qualquer cadeia de 0 ou mais caracteres
+
+'_' - Sublinhado: qualquer caracter único
+
+'[]' - Qualquer caracter único no intervalo ou conjunto
+especificado ([a-h];[aeiou])
+
+'[^]' - Qualquer caracter único que não esteja no intervalo
+ou conjunto especificado ([a-h]; [aeiou])
+
+-------------------------------------------------------
+		       - JOINS
+-------------------------------------------------------
+A palavra-chave JOIN é usada para obter dados provenientes
+de duas ou mais tabelas, baseado em um relacionamento entre 
+colunas nestas tabelas.
+
+ * INNER JOIN: Retorna linhas quando houver pelo menos uma
+correspondencia em ambas as tabelas.
+
+ * OUTER JOIN: Retorna linhas mesmo quando não houver pelo
+menos uma correspondência em uma das tabelas (ou ambas). O
+OUTER JOIN divide em LEFT JOIN, RIGHT JOIN e FULL JOIN.
+
+SELECT colunas
+FROM tabela1
+INNER JOIN tabela2
+ON tabela1.coluna = tabela2.coluna
+
+Ex.:
+SELECT * FROM tbl_Livro
+INNER JOIN tbl_autores
+ON tbl_Livro.ID_Autor = tbl_autores.ID_Autor
+
+SELECT tbl_Livro.Nome_Livro,tbl_Livro.ISBN,
+tbl_autores.Nome_Autor
+FROM tbl_Livro
+INNER JOIN tbl_autores
+ON tbl_Livro.ID_Autor = tbl_autores.ID_Autor
+
+Usando Aliases:
+SELECT L.Nome_Livro, E.Nome_editora
+FROM tbl_Livro AS L
+INNER JOIN tbl_editoras AS E
+ON L.ID_editora = E.ID_editora

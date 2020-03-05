@@ -261,3 +261,19 @@ SELECT L.Nome_Livro, E.Nome_editora
 FROM tbl_Livro AS L
 INNER JOIN tbl_editoras AS E
 ON L.ID_editora = E.ID_editora
+
+===========================================================
+		       OUTER JOINS
+===========================================================
+
+LEFT JOIN: Retorna todas as linhas da tabela à esquerda, 
+mesmo se não houver nenhuma correspondencia na tabela à 
+direita.
+
+RIGHT JOIN: Retorna todas as linhas da tabela à direita, 
+mesmo se não houver nenhuma correspondência na tabela à
+esquerda.
+
+FULL JOIN: Retorna linhas quando houver uma correspondencia
+em qualquer uma das tabelas. É uma combinação de LEFT e 
+RIGHTS JOINS.

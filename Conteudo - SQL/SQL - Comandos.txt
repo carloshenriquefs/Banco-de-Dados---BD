@@ -277,3 +277,90 @@ esquerda.
 FULL JOIN: Retorna linhas quando houver uma correspondencia
 em qualquer uma das tabelas. É uma combinação de LEFT e 
 RIGHTS JOINS.
+
+ - LEFT JOIN
+
+SELECT coluna
+FROM tabela_esq
+LEFT (OUTER) JOIN tabela_dir
+ON tabela_esq.coluna = tabela_dir.coluna
+
+EX.:
+SELECT * FROM tbl_autores
+LEFT JOIN tbl_Livro
+ON tbl_Livro.ID_Autor = tbl_autores.ID_Autor
+
+ - LEFT JOIN excluindo correspondencias
+
+SELECT coluna
+FROM tabela_esq
+LEFT(OUTER) JOIN tabela_dir
+ON tabela_esq.coluna = tabela_dir.coluna
+WHERE tabela_dir.coluna IS NULL
+
+SELECT * FROM tbl_autores
+LEFT JOIN tbl_Livro
+ON tbl_Livro.ID_Autor = tbl_autores.ID_Autor
+WHERE tbl_Livro.ID_Autor IS NULL
+
+ - RIGHT JOIN
+
+SELECT colunas
+FROM tabela_esq
+RIGHT (OUTER)JOIN tabela_dir
+ON tabela_esq.coluna = tabela_dir.coluna
+
+EX.:
+SELECT * FROM tbl_Livro AS Li
+RIGHT JOIN tbl_editos AS Ed
+ON Li.ID_editora = Ed.ID_editora
+
+ - RIGHT JOIN excluindo correspondencias
+
+SELECT coluna
+FROM tabela_esq
+RIGHT(OUTER) JOIN tabela_dir
+ON tabela_esq.coluna = tabela_dir.coluna
+WHERE tabela_esq.coluna IS NULL
+
+SELECT * FROM tbl_Livro
+RIGHT JOIN tbl_editoras
+ON tbl_Livro.ID_editora = tbl_editoras.ID_editora
+WHERE tbl_Livro.ID_editora IS NULL
+
+====================================================
+		     FULL JOIN
+====================================================
+Combinação de RIGHT JOIN com LEFT JOIN, retornando
+registros que não possuam correspondências em ambas
+as tabelas.
+
+SELECT colunas
+FROM tabela1
+FULL (OUTER) JOIN tabela2
+ON tabela1.coluna = tabela2.coluna
+
+ - FULL JOIN exlcuindo correspondência
+
+SELECT colunas
+FROM tabela1
+FULL (OUTER) JOIN tabela2
+ON tabela1.coluna = tabela2.coluna
+WHERE tabela1.coluna IS NULL
+OR tabela2.coluna IS NULL
+
+====================================================
+	   IN: Filtro de Múltiplas Condições
+====================================================
+Determina se um determinado valor corresponde a qualquer
+valor em uma sobconsulta ou lista.
+Retorna sempre TRUE ou FALSE
+
+Sintaxe:
+Expressao_teste(NOT) IN (subconsulta | lista)
+
+SELECT * FROM tbl_Livro
+WHERE ID_Autor IN (1,2) //Só aparece IDs com valor - 1 e 2
+
+SELECT * FROM tbl_Livro
+WHERE ID_Autor NOT IN (1,2) //Não aparece Ids com valor - 1 e 2

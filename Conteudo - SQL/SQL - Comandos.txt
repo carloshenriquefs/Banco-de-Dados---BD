@@ -364,3 +364,21 @@ WHERE ID_Autor IN (1,2) //Só aparece IDs com valor - 1 e 2
 
 SELECT * FROM tbl_Livro
 WHERE ID_Autor NOT IN (1,2) //Não aparece Ids com valor - 1 e 2
+
+====================================================
+		CAMPOS CALCULADOS
+====================================================
+
+CREATE TABLE Produtos(
+codProduto smallint,
+NomeProduto varchar(20),
+Preco money,
+Quant smallint, 
+Total AS (Preco * Quant)
+);
+
+INSERT INTO Produtos VALUES (1, 'Mouse', 15.00, 2);
+INSERT INTO Produtos VALUES (2, 'Teclado', 18.00,1);
+INSERT INTO Produtos VALUES (3, 'Fones', 25.00, 1);
+INSERT INTO Produtos VALUES (4, 'PenDrive', 25.00, 3);
+INSERT INTO Produtos VALUES (5, 'DVD-R', 1.30, 12);

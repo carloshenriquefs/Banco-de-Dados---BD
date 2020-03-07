@@ -4,6 +4,29 @@
 *SGBD(SQL STUDIO) - GERENCIA
 
 *SQL SERVER - GUARDA (LOCAL)
+
+	    [ SGBDR ]
+
+*Sistema Gerenciador de Banco de Dados
+Relacional
+*Trata-se de um sistema de gerenciamento
+de bancos de dados baseado no modelo relacional
+introduzido por E. F. Codd.
+
+Composição de um Banco de Dados
+
+*Tabelas;
+*Campos(Colunas);
+*Registros(Linhas);
+
+ - Tabelas
+
+*Objetos onde são armazenados os dados em 
+um banco de dados relacional
+
+*Uma tabela é uma coleção de entradas de 
+dados relacionados e consiste em linhas e 
+colunas.
 ------------------------------------------
 DDL - Linguagem De Definicao de Dados
 ------------------------------------------
@@ -382,3 +405,21 @@ INSERT INTO Produtos VALUES (2, 'Teclado', 18.00,1);
 INSERT INTO Produtos VALUES (3, 'Fones', 25.00, 1);
 INSERT INTO Produtos VALUES (4, 'PenDrive', 25.00, 3);
 INSERT INTO Produtos VALUES (5, 'DVD-R', 1.30, 12);
+
+=====================================================
+		     CREATE INDEX
+=====================================================
+
+Permitem que as aplicações de BAncos de Dados encontrem
+os dados mais rapidamente, sem ter de ler a tabela toda.
+
+Os usuarios não vêem os índices
+
+CREATE INDEX
+
+Obs.: Apenas crie índices em tabelas que recebam muitas 
+consultas; tabelas indexadas levam mais tempo para serem 
+atualizadas
+
+CREATE INDEX nome_indice
+ON nome_tabela (nome_coluna)

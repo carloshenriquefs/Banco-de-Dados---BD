@@ -4,7 +4,7 @@
 *SGBD(SQL STUDIO) - GERENCIA
 
 *SQL SERVER - GUARDA (LOCAL)
-
+------------------------------------------------
 	    [ SGBDR ]
 
 *Sistema Gerenciador de Banco de Dados
@@ -18,7 +18,7 @@ Composição de um Banco de Dados
 *Tabelas;
 *Campos(Colunas);
 *Registros(Linhas);
-
+------------------------------------------------
  - Tabelas
 
 *Objetos onde são armazenados os dados em 
@@ -27,6 +27,24 @@ um banco de dados relacional
 *Uma tabela é uma coleção de entradas de 
 dados relacionados e consiste em linhas e 
 colunas.
+-----------------------------------------------
+ - Campo
+
+*São entidades que representam os atributos
+dos dados, como Nome,Data de Nascimento,
+Salário, Preco.
+
+*Um campo é uma coluna em uma tabela que 
+mantém informações especificas sobre cada
+registro.
+-----------------------------------------------
+ - Registro
+
+* Linha, ou Tupla
+
+*Cada entrada individual em uma tabela. 
+Trata-se de um conjunto de campos relacionados
+que caracterizam os dados de uma entidade única.
 ------------------------------------------
 DDL - Linguagem De Definicao de Dados
 ------------------------------------------

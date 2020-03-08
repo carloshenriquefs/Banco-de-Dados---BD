@@ -135,6 +135,43 @@ em uma tabela de banco de dados.
 
 * Cada tabela deve ter uma chave primária e apenas uma chave
 primária. 
+
+=======================================================
+        	   - FOREIGN KEY
+=======================================================
+
+*Uma FOREIGN KEY (Chave Estrangeira) em uma tabela é um
+campo que aponta para uma chave primária em outra tabela.
+
+CONSTRAINT fk_ID_Autor FOREIGN KEY (ID_Autor) REFERENCES
+tbl_autores(ID_Autor)
+
+Neste exemplo a chave primária está na tabela tbl_autores
+e uma chave estrangeira de nome ID_Autor foi criada na 
+tabela atual, usando o nome fk_ID_Autor
+
+========================================================
+		    - CHECK
+========================================================
+
+*A constraint CHECK é usada para limitar uma faixa de 
+valores que podem ser colocadas em uma coluna.
+
+*Se uma constraint CHECK for definida em uma única coluna
+ela permitirá apenas determinados valores para a coluna.
+
+*Se a constraint CHECK for definida para a tabela, ela 
+poderá limitar os valores em algumas colunas com base nos
+valores de outras colunas do registro.
+
+========================================================
+		    - DEFAULT
+=======================================================
+* A restrição DEFAULT é usada para inserir um valor padrão
+em uma coluna.
+ 
+* O valor padrão será adicionado a todos os novos registros
+caso nenhum outro valor seja especificado.
 ------------------------------------------
 DDL - Linguagem De Definicao de Dados
 ------------------------------------------

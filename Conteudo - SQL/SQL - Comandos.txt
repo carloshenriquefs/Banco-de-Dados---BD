@@ -45,6 +45,96 @@ registro.
 *Cada entrada individual em uma tabela. 
 Trata-se de um conjunto de campos relacionados
 que caracterizam os dados de uma entidade única.
+------------------------------------------------
+ - Criacao de um Banco de Dados
+
+CREATE DATABASE db_Biblioteca
+ON PRIMARY (NAME = db_Biblioteca,
+FILENAME='C:\SQL\db_Biblioteca.MDF',
+SIZE=6MB,
+MAXSIZE =10MB,
+FILEGROWTH=10%
+)
+------------------------------------------------
+ - USE
+
+*O comando USE instrui o SGBDR a utilizar o
+banco de dados especificado para rodar os comandos
+
+*Sintaxe:
+USE banco_de_dados
+--------------------------------------------------
+ - sp_helpdb
+
+ Informa o tamanho, taxa de crescimento, e o local
+do banco de dados.
+
+sp_helpdb NOME_BANCO_DADOS
+--------------------------------------------------
+ - SQL Constraints (Restrições)
+
+*Restrições são regras aplicadas nas colunas de uma 
+tabela.
+*São usadas para limitar os tipos de dados que são
+inseridos.
+*Podem ser especificados no momento de criação da 
+tabela (CREATE) ou após a tabela ter sido criada
+(ALTER).
+
+===================================================
+	 - SQL Constraints (RESTRIÇÕES)
+===================================================
+
+Principais
+
+*NOT NULL
+*UNIQUE
+*PRIMARY KEY
+*FOREIGN KEY
+*CHECK
+*DEFAULT
+
+===================================================
+		   - NOT NULL
+===================================================
+
+* A constraint NOT NULL impõe a uma coluna a 
+NÃO aceitar valores NULL.
+
+* A constraint NOT NULL obriga um campo a sempre
+possuir um valor.
+
+* Deste modo, não é possivel inserir um registro
+(ou atualizar) sem entrar com um valor neste campo.
+
+====================================================
+		  - UNIQUE
+====================================================
+*A restrição UNIQUE identifica de forma única cada
+registro em uma tabela de um banco de dados
+
+*As constraints UNIQUE e PRIMARY KEY garantem a unicidade
+em uma coluna ou conjunto de colunas.
+
+*Uma constraint PRIMARY KEY automaticamente possui uma 
+restrição UNIQUE definida.
+
+*Você pode ter várias constraints UNIQUE em uma tabela,
+mas apenas uma Chave Primária por tabela.
+
+======================================================
+    		- PRIMARY KEY
+======================================================
+
+* A PRIMARY KEY identifica de forma única cada registro
+em uma tabela de banco de dados.
+
+* Chaves Primárias devem conter valores únicos.
+
+* Uma coluna de chave primária não pode conter valores NULL.
+
+* Cada tabela deve ter uma chave primária e apenas uma chave
+primária. 
 ------------------------------------------
 DDL - Linguagem De Definicao de Dados
 ------------------------------------------

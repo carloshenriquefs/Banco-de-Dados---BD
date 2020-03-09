@@ -172,6 +172,127 @@ em uma coluna.
  
 * O valor padrão será adicionado a todos os novos registros
 caso nenhum outro valor seja especificado.
+
+========================================================
+		 - CRIAR TABELAS
+========================================================
+
+USE db_Biblioteca
+
+CREATE TABLE tbl_Livro
+(ID_Livro SMALLINT PRIMARY KEY IDENTITY(100,1),
+Nome_Livro VARCHAR(50) NOT NULL,
+ISBN VARCHAR(30) NOT NULL UNIQUE,
+ID_Autor SMALLINT NOT NULL,
+Data_Pub DATETIME NOT NULL,
+Preco_Livro MONEY NOT NULL)
+
+======================================================
+		- sp_help TABELA
+======================================================
+
+*Informa os índices, chaves e campos, atributos tipos de 
+atributos de uma tabela (stored procedures, comandos pré-
+programados).
+
+=======================================================
+	 	- AUTO INCREMENT (IDENTITY)
+=======================================================
+
+* O auto incremento permite que um número único seja gerado
+quando um novo registro é inserido em uma tabela.
+
+* Em SQL SERVER trata-se da palavra chave IDENTITY (identidade),
+cujo valor inicial padrão é 1, e se incrementa em 1.
+
+* Para que o valor de IDENTITY inicie em 100 e se incremente
+de 2 em 2, use IDENTITY(100,2).
+
+========================================================
+		- AUTO INCREMENT (IDENTITY)
+========================================================
+
+* Ao inserir valores na tabela, não é necessário especificar o
+valor para a coluna de auto-incremento.
+
+* Não é possivel alterar uma coluna existente para configurar
+IDENTITY. 
+
+* Se necessário, crie uma nova tabela com IDENTITY e exclua
+a atual.
+
+* Só é permitido usar uma coluna de identidade por tabela.
+
+ - SINTAXE: 
+
+CREATE TABLE tbl_teste_identidade
+(ID_Teste SMALLINT PRIMARY KEY IDENTITY, 
+valor SMALLINT NOT NULL)
+
+INSERT INTO tbl_teste_identidade (valor) VALUES (10)
+INSERT INTO tbl_teste_identidade (valor) VALUES (20)
+INSERT INTO tbl_teste_identidade (valor) VALUES (30)
+INSERT INTO tbl_teste_identidade (valor) VALUES (40)
+
+SELECT * FROM tbl_teste_identidade 
+
+===========================================================
+		   - ALTERAR TABELAS
+===========================================================
+
+* É possivel alterar a estrutura de uma tabela após ter sido
+criada, acrescentando ou excluindo atributos (campos). 
+
+ALTER TABLE tbl_Livro
+DROP COLUMN ID_Autor
+
+Pode-se excluir uma constraint: 
+
+ALTER TABLE tabela
+DROP CONSTRAINT nome_constraint
+
+--------------------
+ - ALTER TABLE -ADD
+--------------------
+
+ALTER TABLE tbl_Livro
+ADD ID_Autor SMALLINT NOT NULL
+CONSTRAINT fk_ID_Autor FOREIGN KEY (ID_Autor)
+REFERENCES tbl_autores
+
+ALTER TABLE tbl_Livro
+ADD ID_editora SMALLINT NOT NULL
+CONSTRAINT fk_id_editora FOREIGN KEY (ID_editora)
+REFERENCES tbl_editoras
+
+------------------------------
+ - ALTER TABLE - ALTER COLUMN
+------------------------------
+
+ALTER TABLE tbl_Livro 
+ALTER COLUMN ID_Autor SMALLINT
+
+------------------------
+ - ALTER TABLE -ADD PK
+------------------------
+
+ALTER TABLE Clientes
+ADD PRIMARY KEY (ID_Cliente)
+
+OBS.: A coluna ID_Cliente deve existir antes de ser
+transformada em chave primária.
+
+A coluna ID_Cliente receberá a constraint "PRIMARY KEY",
+e passará a ser chave primária da tabela.
+
+------------------------------
+ - DROP TABLE -Excluir tabela
+------------------------------
+
+ DROP TABLE nome_tabela
+
+ DROP TABLE Clientes
+
 ------------------------------------------
 DDL - Linguagem De Definicao de Dados
 ------------------------------------------

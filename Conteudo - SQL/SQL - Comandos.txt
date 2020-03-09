@@ -293,6 +293,54 @@ e passará a ser chave primária da tabela.
 
  DROP TABLE Clientes
 
+------------------------------
+ - INSERIR DADOS
+------------------------------
+ Inserir dados em uma tabela: 
+
+INSERT INTO tabela (coluna1, coluna2,...)
+VALUES(valor1, valor2,...)
+
+-------------------------------------
+ - INSERIR DADOS - Tabela de Autores
+-------------------------------------
+
+INSERT INTO tbl_Autores(ID_Autor, Nome_Autor, SobreNome_Autor)
+VALUES (1, 'Daniel', 'Barret')
+
+INSERT INTO tbl_Autores(ID_Autor, Nome_Autor, SobreNome_Autor)
+VALUES (2, 'Gerald', 'Carter')
+
+INSERT INTO tbl_Autores(ID_Autor, Nome_Autor, SobreNome_Autor)
+VALUES(3, 'Mark', 'Sobell')
+
+INSERT INTO tbl_Autores(ID_Autor, Nome_Autor, Sobrenome_Autor)
+VALUES(4, 'William', 'Stanek')
+
+INSERT INTO tbl_Autores(ID_Autor, Nome_Autor, SobreNome_Autor)
+VALUES(5, 'Richard', 'Blum')
+
+----------------------------------------
+ - TRUNCATE TABLE
+----------------------------------------
+
+*Remove todas as linhas de uma tabela sem registrar as 
+exclusões de linhas individuais.
+
+*TRUNCATE TABLE é como a instrução DELETE sem usar a cláusula
+WHERE.
+
+*Entretanto, TRUNCATE TABLE é mais rápida e utiliza menos 
+recursos de sistema e log de transações.
+
+SELECT COUNT(*) AS Tabela_Antes FROM Clientes
+GO
+
+TRUNCATE TABLE Clientes
+GO
+
+SELECT COUNT (*) AS Tabela_Depois FROM Clientes
+GO
 ------------------------------------------
 DDL - Linguagem De Definicao de Dados
 ------------------------------------------

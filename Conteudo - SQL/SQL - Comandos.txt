@@ -369,6 +369,30 @@ Ex.: SELECT Nome_Livro, Id_Autor FROM tbl_Livro
 SELECT Nome_Livro, ISBN
 FROM tbl_Livro
 ORDER BY Nome_Livro
+
+============================================
+	       - ORDER BY
+============================================
+
+* A palavra-chave ORDER BY é usada para ordenar
+o conjunto resultado de registros.
+
+* ASC - Ordem ascendente
+* DESC - Ordem descendente (inversa)
+
+ SELECT * FROM tbl_Livro
+ ORDER BY Nome_Livro ASC
+
+SELECT colunas FROM tabela
+ORDER BY coluna_a_ordenar
+
+EX.: 
+
+SELECT * FROM tbl_Livro ORDER BY Nome_Livro
+(ordem crescente)
+
+SELECT * FROM tbl_Livro ORDER BY coluna DESC
+(ordem decrescente)
 ------------------------------------------
 DDL - Linguagem De Definicao de Dados
 ------------------------------------------

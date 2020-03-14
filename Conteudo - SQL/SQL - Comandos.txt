@@ -789,3 +789,57 @@ atualizadas
 
 CREATE INDEX nome_indice
 ON nome_tabela (nome_coluna)
+
+======================================================
+		    CREATE RULES
+======================================================
+
+---------------------
+  - REGRAS
+---------------------
+
+As regras são configurações que permitem especificar como
+determinados parâmetros do banco de dados devem se comportar,
+como por exemplo, limitar faixas de valores em colunas, ou 
+especificar valores inválidos para registros.
+
+CREATE RULE nome_regra AS parametros
+
+EXECUTE SP_BINDRULE rl_preco, 'tbl_Livro.Preco_Livro'
+
+STORED PROCEDURE = PROCEDIMENTO ARMAZENADO
+
+=======================================================
+		BACKUP DO BANCO DE DADOS
+=======================================================
+
+Sintaxe: 
+
+BACKUP DATABASE test
+TO DISK = 'C:\arquivos\test.bak';
+GO
+
+BACKUP DATABASE test
+TO DISK = 'C:\arquivos\test.bak';
+WITH FORMAT;
+GO
+
+========================================================
+		CONCATENAÇÃO DE STRINGS
+========================================================
+
+* É possivel concatenar strings usando-se o operador de 
+concatenação ( + )
+
+Sintaxe:
+
+string1 | coluna + string2 | coluna
+
+Exemplo:
+
+SELECT 'Fabio' + 'Da Boson Treinamentos' AS 'Boson'
+
+SELECT Nome_autor + '' + Sobrenome_autor AS 'Nome Completo' FROM tbl_autores
+
+SELECT 'Eu gosto do Livro ' + Nome_Livro AS 'Meu Livro' FROM tbl_Livro
+WHERE ID_Autor = 2

@@ -341,6 +341,34 @@ GO
 
 SELECT COUNT (*) AS Tabela_Depois FROM Clientes
 GO
+
+
+================================================
+	        SELECT FROM
+================================================
+
+------------------------------
+    - Consulta Simples
+------------------------------
+
+ SELECT coluna FROM Tabela
+
+Ex.:
+SELECT Nome_Autor FROM tbl_Autores
+SELECT * FROM tbl_Autores
+SELECT Nome_Livro FROM tbl_Livro
+
+-------------------------------
+   - Especificando Colunas
+-------------------------------
+ 
+ SELECT colunas FROM tabela
+
+Ex.: SELECT Nome_Livro, Id_Autor FROM tbl_Livro
+
+SELECT Nome_Livro, ISBN
+FROM tbl_Livro
+ORDER BY Nome_Livro
 ------------------------------------------
 DDL - Linguagem De Definicao de Dados
 ------------------------------------------

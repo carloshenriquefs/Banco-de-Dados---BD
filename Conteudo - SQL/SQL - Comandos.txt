@@ -974,3 +974,84 @@ SELECT(SELECT 'Fabio') AS Subconsulta;
  FROM ConsultaCTE
  GROUP BY Cliente
  ORDER BY ValorTotal
+
+=====================================================================
+			     VARIAVEIS
+=====================================================================
+
+ As variaveis podem ser declaradas no corpo de um batch ou procedimento.
+Pode-se atribuir-lhes valores usando-se declarações SET ou SELECT.
+ As variaveis são inicializadas por padrão com NULL.
+
+--------------------------
+Declaração de Variaveis
+--------------------------
+
+DECLARE @nome_var tipo
+
+Ex.:
+
+DECLARE  @valor INT,
+ 	 @texto VARCHAR(40),
+	 @data_nasc DATE,
+         @nada MONEY
+	 @valor1, valor2, valor3 INT |--Variaveis do mesmo tipo
+
+Obs.:
+Usa-se a palavra DECLARE apenas uma vez para todas as variaveis 
+
+--------------------------
+Atribuir valores com SET 
+--------------------------
+
+SET nome_var = valor_var
+
+Ex.:
+
+SET @valor = 50
+SET @texto = 'Boson'
+SET @data_nasc = GETDATE()
+
+----------------------------
+Exibir os valores (consulta)
+----------------------------
+
+SELECT nomes_var AS aliases
+
+SELECT  @valor AS Valor, 
+	@texto AS Texto,
+	@data_nasc AS 'Data de Nascimento',
+	@nada AS Salario
+
+----------------------------
+Atribuir valor com SELECT
+----------------------------
+
+SELECT nome_Var = coluna FROM tabela
+WHERE condicao
+SELECT nome_var AS alias
+
+Ex.:
+
+DECLARE @livro VARCHAR(30)
+SELECT @livro = nome_livro
+FROM tbl_livro
+WHERE ID_Livro = 101
+SELECT @livro AS 'Nome do Livro'
+
+---------------------
+Exemplo com cálculo
+---------------------
+
+DECLARE @preco MONEY,
+        @quantidade INT, 
+	@nome VARCHAR(30)
+	SET @quantidade = 5
+
+SELECT @preco = Preco_Livro,
+       @nome = Nome_Livro
+FROM tbl_Livro
+WHERE ID_Livro = 101
+
+SELELCT @nome AS 'Nome do Livro'
+@preco * @quantidade AS 'Preco dos Livros'

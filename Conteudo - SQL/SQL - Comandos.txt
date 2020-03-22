@@ -1121,3 +1121,65 @@ Alterando estilo para Britanico/Frances(103):
 SELECT 'A data de publicacao' + CONVERT(VARCHAR(15), Data_Pub, 103)
 FROM tbl_livro
 WHERE ID_Livro = 102
+
+===============================================================
+		     Condicional IF / ELSE
+===============================================================
+
+ É possivel realizar teste condicionais em declarações SQL usando-se
+a estrutura IF / ELSE.
+
+Extruturas:
+
+IF Condicao		IF Condicao
+  Declaracao		   Declaracao	
+			ELSE
+			   Declaracao 
+
+ Nos exemplos anteriores, apenas uma de código é executada após os 
+comandos IF e ELSE;
+para executar blocos de código, use as palavras BEGIN e END:
+
+ IF condicao
+    BEGIN
+	Bloco de códigos
+    END;
+
+Primeiro Exemplo:
+
+DECLARE @numero INT,
+        @texto VARCHAR(10)
+
+SET @numero = 20
+SET @texto = 'Fabio'
+
+IF @numero = 20
+	SELECT 'Numero correto!'
+IF @texto = 'Fabio'
+	BEGIN 
+		SET @numero = 30
+		SELECT @numero
+	END;
+ELSE
+	BEGIN
+		SET @numero = 40
+		SELECT 'Numero incorreto!'
+	END;
+
+ Exemplo com Consulta:
+
+ DECLARE @NOME VARCHAR(30),
+	 @MEDIA REAL,
+ 	 @RESULTADO VARCHAR(10)
+ SELECT
+	@NOME = nome_aluno
+	@MEDIA = (tbl_alunos.nota1 + tbl_alunos.nota2 + tbl_alunos.nota3 + tbl_alunos.nota4) / 4.00
+ FROM tbl_alunos
+ WHERE nome_aluno = 'Fabio'
+	IF @MEDIA >= 7.00
+	BEGIN
+		SELECT @RESULTADO = 'Reprovado';
+	END;
+
+	SELECT 'O aluno ' + @NOME + 'está' + @RESULTADO +
+		'com media ' + CAST(@MEDIA AS VARCHAR);

@@ -1055,3 +1055,69 @@ WHERE ID_Livro = 101
 
 SELELCT @nome AS 'Nome do Livro'
 @preco * @quantidade AS 'Preco dos Livros'
+
+===========================================================================
+          Conversão de Tipos de Dados no SQL (Cast e Convert)
+===========================================================================
+
+-------------------------
+   Conversão de Dados
+-------------------------
+
+ Podemos converter expressões de um tipo de dados em outro no SQL usando
+as funções:
+
+ *CAST
+ *CONVERT
+
+------------------------
+ CAST
+------------------------
+
+ CAST(expressao AS nobo_tipo_dados)
+
+ Ex.:
+
+ SELECT 'O preco do livro' + Nome_Livro + 'é de R$' + CAST(Preco_Livro AS VARHCAR(6)) AS Item FROM tbl_livro
+ WHERE ID_autor = 2
+
+-------------------------
+ CONVERT
+-------------------------
+
+ CONVERT(novo_tipo_dados, expressao, estilo)
+
+ estilo é usado normalmente para converter datas ou trabalhar com float/real.
+
+ Ex.:
+ 
+ SELECT 'O preco do livro' + Nome_Livro + ' é de R$' + CONVERT(VARCHAR(6), Preco_Livro)
+ FROM tbl_livro
+
+-----------------------------
+  Outro exemplo com CONVERT
+-----------------------------
+
+ Trabalhando com datas- Quando a expressão é um tipo de data ou hora, o estilo
+deve ser um valor de acordo com a tabela a seguir:
+
+ Codigo do Estilo	Padrao			Representacao
+ 	101		 EUA			 mm/dd/aaaa
+ 	102		 ANSI			 aaaa.mm.dd
+ 	103	    	Britanico/Frances 	 dd/mm/aaaa
+ 	112		 ISO     		 aaaammdd
+ 	109		 Padrão			 mês dd aaaa
+
+----------------------------
+Exemplo de Data com CONVERT
+----------------------------
+
+Sem alterar estilo:
+SELECT 'A data de publicação' + CONVERT(VARCHAR(15), Data_Pub)
+FROM tbl_livro
+WHERE ID_Livro = 102
+
+Alterando estilo para Britanico/Frances(103):
+SELECT 'A data de publicacao' + CONVERT(VARCHAR(15), Data_Pub, 103)
+FROM tbl_livro
+WHERE ID_Livro = 102

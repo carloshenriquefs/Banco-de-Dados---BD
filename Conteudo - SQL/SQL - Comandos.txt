@@ -1183,3 +1183,105 @@ ELSE
 
 	SELECT 'O aluno ' + @NOME + 'está' + @RESULTADO +
 		'com media ' + CAST(@MEDIA AS VARCHAR);
+
+===========================================================================
+			        LOOP WHILE
+===========================================================================
+
+ WHILE
+
+ O comando WHile é usado para executar código enquanto uma condição for 
+verdadeira.
+ Ele executa apenas um comando, se for necessário executar um bloco de comandos,
+use BEGIN/END.
+
+ WHILE
+
+ Sintaxe:
+
+ WHILE condicao
+    BEGIN
+       Bloco de codigos
+    END;
+
+-----------------
+ Exemplo While:
+-----------------
+
+DECLARE @valor INT
+SET @valor = 0
+
+WHILE @valor < 10
+   BEGIN
+       PRINT 'Número:'+CAST(@valor AS VARCHAR(2))
+       SET  @valor = @valor + 1
+   END;
+
+============================================================================
+				Stored Procedures
+============================================================================
+
+ Definição:
+
+ São lotes (batches) de declarações SQL que podem ser executadas como uma 
+subrotina.
+ Permitem centralizar o lógica de acesso aos dados em um único local, facilitando
+a manutenção e otimização de código.
+ Também é possivel ajustar permissões de acesso aos usuários, definindo quem pode 
+ou não executá-las.
+
+----------------------------------
+ Criar um Procedimento Armazenado
+----------------------------------
+
+ CREATE PROCEDURE nome_procedimento
+    (@Parâmetro Tipo_dados)
+ AS
+   Bloco de codigos
+
+-----------------
+   Exemplo1
+-----------------
+
+ CREATE PROCEDURE teste
+ AS
+ SELECT 'Boson Treinamentos' AS Nome
+
+Para executar:
+EXEC(UTE) teste
+obs. Se o procedimento armazenado for o primeiro comando de um batch, não é 
+necessário usar a palavra EXEC
+
+------------------
+   Exemplo2
+------------------
+
+ CREATE PROCEDURES p_LivroValor
+ AS
+ SELECT Nome_Livro, Preco_livro
+ FROM tbl_Livro
+
+----------------------------
+ Vizualizar conteúdo de SP
+----------------------------
+
+Use o procedimento armazenado sp_helptext para extrair o conteúdo de texto
+de uma stored procedure:
+ 
+ EXEC sp_helptext nome_procedimento
+
+ Ex.:
+ EXEC sp_helptext p_LivroValor
+
+----------------------------------
+ Criptografar Stored Procedure
+----------------------------------
+
+ CREATE PROCEDURE p_LivroISBN
+ WITH ENCRYPTION
+ AS 
+ SELECT Nome_Livro, ISBN
+ FROM tbl_Livro
+
+ Agora tente visualizar seu conteúdo com sp_helptext:
+ EXEC sp_helptext p_LivroISBN

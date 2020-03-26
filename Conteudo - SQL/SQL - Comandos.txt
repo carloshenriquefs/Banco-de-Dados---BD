@@ -4,6 +4,8 @@
 *SGBD(SQL STUDIO) - GERENCIA
 
 *SQL SERVER - GUARDA (LOCAL)
+
+*SSMS - Acessa os dados dos bancos(Gerencia)
 ------------------------------------------------
 	    [ SGBDR ]
 
@@ -1285,3 +1287,51 @@ de uma stored procedure:
 
  Agora tente visualizar seu conteúdo com sp_helptext:
  EXEC sp_helptext p_LivroISBN
+
+==============================================================================
+			  Modificar Stored Procedures
+==============================================================================
+
+ ALTER PROCEDURE
+ 
+ ALTER PROCEDURE nome_procedimento
+ bloco de códigos da sp
+
+---------------------------
+ Parâmetros de Entrada
+---------------------------
+
+ ALTER PROCEDURE teste(@parl AS int)
+ AS
+ SELECT @parl
+
+ Executar passando um parâmetro:
+ EXEC teste 22 --22 é o valor do parâmetro passado
+
+-------------------------------------
+Outro Exemplo com parâmetro de entrada
+---------------------------------------
+
+ ALTER PROCEDURE p_LivroValor
+ (@ID SMALLINT)
+ AS
+ SELECT Nome_Livro as Livro, Preco_Livro AS Preco
+ FROM tbl_Livro
+ WHERE ID_Livro = @ID
+ 
+ EXEC p_LivroValor 104
+
+---------------------------------
+Multiplos parâmetros de entrada
+---------------------------------
+
+ ALTER PROCEDURE teste(@parl AS int, @par2 AS varchar(20))
+ AS 
+ BEGIN
+ SELECT @par1
+ SELECT @par2
+ END
+
+ Executar passando um parâmetro:
+ EXEC test 22, 'Laranja' --por posicao
+ EXEC text @parl =25, @par2 = 'Abacate' --por nome

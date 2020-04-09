@@ -1335,3 +1335,63 @@ Multiplos parâmetros de entrada
  Executar passando um parâmetro:
  EXEC test 22, 'Laranja' --por posicao
  EXEC text @parl =25, @par2 = 'Abacate' --por nome
+
+---------------------------------------------------
+Outro exemplo com múltiplos parâmetros de entrada
+---------------------------------------------------
+
+ ALTER PROCEDURE p_LivroValor
+ (@ID SMALLINT, @Preco MONEY)
+ AS 
+ SELECT Nome_Livro as Livro, Preco_Livro AS Preco
+ FROM tbl_Livro
+ WHERE ID_Livro > @ID AND Preco_Livro > @Preco
+
+ Executar:
+ EXEC p_LivroValor @ID = 103, @Preco = 60
+
+--------------------------------------------------
+Outro Exemplo com multiplos parametros de entrada
+--------------------------------------------------
+
+ALTER PROCEDURE p_LivroValor
+(@ID SMALLINT, @Preco MONEY)
+AS
+SELECT Nome_Livro as Livro, Preco_Livro AS Preco
+FROM tbl_Livro
+WHERE ID_Livro > @ID AND Preco_Livro > @Preco
+
+EXEC p_LivroValor @ID = 103, @Preco = 60
+
+--------------------------------------------------
+Outro exemplo - parametros
+--------------------------------------------------
+
+Desejo fornecer o ID e a quantidade de um titulo adquirido,
+e saber o valor total pago pelos livros.
+
+ALTER PROCEDURE p_LivroValor(
+@Quantidade SMALLINT,
+@ID SMALLINT)
+AS 
+SELECT Nome_Livro as Livro, Preco_Livro * @ Quantidade AS Preco
+FROM tbl_Livro
+WHERE ID_Livro = @ID
+
+EXEC p_LivroValor @ID = 102, @Quantidade = 10
+
+----------------------------------------
+Exemplo - Insercao de dados
+----------------------------------------
+
+CREATE PROCCEDURE p_insere_editora(
+@nome VARCHAR(50))
+AS
+INSERT INTO tbl_editoras(Nome_Editora)
+VALUES(@nome)
+
+--Execucao e verificacao:
+EXEC p_insere_editora @nome = 'Editorial'
+SELECT * FROM tbl_editoras
+
+EXEC p_insere_editora @nome = 'Apress'
